@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Figtree:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 8% 0.02 260;
+  --foreground: 95% 0.01 260;
+  --card: 14% 0.04 260;
+  --card-foreground: 95% 0.01 260;
+  --popover: 12% 0.03 260;
+  --popover-foreground: 95% 0.01 260;
+  --primary: 65% 0.28 290;
+  --primary-foreground: 98% 0.01 260;
+  --secondary: 18% 0.04 260;
+  --secondary-foreground: 80% 0.02 260;
+  --muted: 16% 0.03 260;
+  --muted-foreground: 60% 0.02 260;
+  --accent: 65% 0.28 290;
+  --accent-foreground: 98% 0.01 260;
+  --destructive: 55% 0.22 15;
+  --destructive-foreground: 98% 0.01 260;
+  --border: 28% 0.04 260;
+  --input: 22% 0.04 260;
+  --ring: 65% 0.28 290;
+  --radius: 0.75rem;
+
+  --accent-purple: oklch(65% 0.28 290);
+  --accent-green: oklch(65% 0.25 145);
+  --accent-pink: oklch(65% 0.28 340);
+  --accent-orange: oklch(70% 0.22 50);
+  --accent-cyan: oklch(72% 0.22 200);
+
+  /* sidebar tokens (required by shadcn) */
+  --sidebar: 10% 0.025 260;
+  --sidebar-foreground: 80% 0.02 260;
+  --sidebar-primary: 65% 0.28 290;
+  --sidebar-primary-foreground: 98% 0.01 260;
+  --sidebar-accent: 18% 0.04 260;
+  --sidebar-accent-foreground: 80% 0.02 260;
+  --sidebar-border: 28% 0.04 260;
+  --sidebar-ring: 65% 0.28 290;
+
+  /* chart */
+  --chart-1: 65% 0.28 290;
+  --chart-2: 65% 0.25 145;
+  --chart-3: 72% 0.22 200;
+  --chart-4: 70% 0.22 50;
+  --chart-5: 65% 0.28 340;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: oklch(8% 0.02 260);
+  color: oklch(95% 0.01 260);
+  font-family: "Figtree", system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* ── Design tokens ── */
+.glass {
+  background: oklch(14% 0.04 260 / 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid oklch(30% 0.05 260 / 0.35);
+}
+
+.gradient-title {
+  background: linear-gradient(135deg, oklch(65% 0.28 290), oklch(72% 0.22 200));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accent text helpers */
+.neon-text-purple {
+  color: oklch(65% 0.28 290);
+}
+.neon-text-green {
+  color: oklch(65% 0.25 145);
+}
+.neon-text-pink {
+  color: oklch(65% 0.28 340);
+}
+.neon-text-orange {
+  color: oklch(70% 0.22 50);
+}
+.neon-text-cyan {
+  color: oklch(72% 0.22 200);
+}
+
+/* ── Reusable layout helpers ── */
+.page-wrapper {
+  padding: 40px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  color: oklch(58% 0.02 260);
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+
+/* ── Form controls ── */
+.field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.field-control {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid oklch(30% 0.05 260 / 0.5);
+  background: oklch(12% 0.03 260);
+  color: oklch(90% 0.01 260);
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.field-control:focus {
+  outline: none;
+  border-color: oklch(65% 0.28 290 / 0.6);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: oklch(40% 0.03 260 / 0.5);
+  color: oklch(62% 0.02 260);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: oklch(20% 0.03 260 / 0.5);
+}
+
+/* ── Animations ── */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.35s ease forwards;
+}
+
+/* ── Scrollbar ── */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
